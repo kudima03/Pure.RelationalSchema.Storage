@@ -16,21 +16,24 @@ public sealed record CellTests
 
         ICell cell = new Cell(cellValue);
 
-        Assert.True(new MaterializedBool(new EqualCondition(cellValue, cell.Value))
-            .Value);
+        Assert.True(
+            new MaterializedBool(new EqualCondition(cellValue, cell.Value)).Value
+        );
     }
 
     [Fact]
     public void ThrowsExceptionOnGetHashCode()
     {
-        Assert.Throws<NotSupportedException>(() =>
-            new Cell(new RandomString(new UShort(10))).GetHashCode());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new Cell(new RandomString(new UShort(10))).GetHashCode()
+        );
     }
 
     [Fact]
     public void ThrowsExceptionOnToString()
     {
-        Assert.Throws<NotSupportedException>(() =>
-            new Cell(new RandomString(new UShort(10))).ToString());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new Cell(new RandomString(new UShort(10))).ToString()
+        );
     }
 }

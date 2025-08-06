@@ -5,7 +5,9 @@ namespace Pure.RelationalSchema.Storage;
 
 public sealed record StoredSchemaDataset : IStoredSchemaDataSet
 {
-    public StoredSchemaDataset(IReadOnlyDictionary<ITable, IStoredTableDataSet> tablesDatasets)
+    public StoredSchemaDataset(
+        IReadOnlyDictionary<ITable, IStoredTableDataSet> tablesDatasets
+    )
     {
         TablesDatasets = tablesDatasets;
     }

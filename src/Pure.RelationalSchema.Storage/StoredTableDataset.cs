@@ -9,10 +9,24 @@ public sealed record StoredTableDataset : IStoredTableDataSet
 {
     private readonly IAsyncEnumerator<IRow> _asyncEnumerator;
 
-    public StoredTableDataset(ITable tableSchema, IQueryProvider provider, IAsyncEnumerator<IRow> asyncEnumerator)
-        : this(tableSchema, Expression.Constant(null, typeof(IQueryable<IRow>)), provider, asyncEnumerator) { }
+    public StoredTableDataset(
+        ITable tableSchema,
+        IQueryProvider provider,
+        IAsyncEnumerator<IRow> asyncEnumerator
+    )
+        : this(
+            tableSchema,
+            Expression.Constant(null, typeof(IQueryable<IRow>)),
+            provider,
+            asyncEnumerator
+        ) { }
 
-    public StoredTableDataset(ITable tableSchema, Expression expression, IQueryProvider provider, IAsyncEnumerator<IRow> asyncEnumerator)
+    public StoredTableDataset(
+        ITable tableSchema,
+        Expression expression,
+        IQueryProvider provider,
+        IAsyncEnumerator<IRow> asyncEnumerator
+    )
     {
         TableSchema = tableSchema;
         Expression = expression;
@@ -39,7 +53,8 @@ public sealed record StoredTableDataset : IStoredTableDataSet
     }
 
     public IAsyncEnumerator<IRow> GetAsyncEnumerator(
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default
+    )
     {
         return _asyncEnumerator;
     }
