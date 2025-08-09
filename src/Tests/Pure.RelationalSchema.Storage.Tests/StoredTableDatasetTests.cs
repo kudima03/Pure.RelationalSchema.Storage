@@ -192,7 +192,7 @@ public sealed record StoredTableDatasetTests
             []
         );
 
-        IQueryable<int> rows = sourceArray.AsQueryable();
+        IQueryable<int> rows = Enumerable.Empty<int>().AsQueryable();
 
         IStoredTableDataSet tableDataSet = new StoredTableDataset(
             table,
@@ -238,4 +238,3 @@ public sealed record StoredTableDatasetTests
         );
     }
 }
-private static readonly int[] sourceArray = Array.Empty<int>();
