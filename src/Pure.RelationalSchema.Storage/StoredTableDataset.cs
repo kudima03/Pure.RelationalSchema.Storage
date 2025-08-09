@@ -7,31 +7,31 @@ namespace Pure.RelationalSchema.Storage;
 
 public sealed record StoredTableDataset : IStoredTableDataSet
 {
-    private readonly IAsyncEnumerator<IRow> _asyncEnumerator;
+    private readonly IAsyncEnumerable<IRow> _asyncEnumerable;
 
     public StoredTableDataset(
         ITable tableSchema,
         IQueryProvider provider,
-        IAsyncEnumerator<IRow> asyncEnumerator
+        IAsyncEnumerable<IRow> asyncEnumerator
     )
-        : this(
-            tableSchema,
-            Expression.Constant(null, typeof(IQueryable<IRow>)),
-            provider,
-            asyncEnumerator
-        ) { }
+    {
+        TableSchema = tableSchema;
+        Expression = Expression.Constant(this);
+        Provider = provider;
+        _asyncEnumerable = asyncEnumerator;
+    }
 
     public StoredTableDataset(
         ITable tableSchema,
         Expression expression,
         IQueryProvider provider,
-        IAsyncEnumerator<IRow> asyncEnumerator
+        IAsyncEnumerable<IRow> asyncEnumerable
     )
     {
         TableSchema = tableSchema;
         Expression = expression;
         Provider = provider;
-        _asyncEnumerator = asyncEnumerator;
+        _asyncEnumerable = asyncEnumerable;
     }
 
     public ITable TableSchema { get; }
@@ -56,7 +56,7 @@ public sealed record StoredTableDataset : IStoredTableDataSet
         CancellationToken cancellationToken = default
     )
     {
-        return _asyncEnumerator;
+        return _asyncEnumerable.GetAsyncEnumerator(cancellationToken);
     }
 
     public override string ToString()
