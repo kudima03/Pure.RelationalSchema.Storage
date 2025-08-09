@@ -36,7 +36,7 @@ public sealed record RowTests
     public void ThrowsExceptionOnGetHashCode()
     {
         _ = Assert.Throws<NotSupportedException>(() =>
-            new Cell(new RandomString(new UShort(10))).GetHashCode()
+            new Row(new Dictionary<IColumn, ICell>()).GetHashCode()
         );
     }
 
@@ -44,7 +44,7 @@ public sealed record RowTests
     public void ThrowsExceptionOnToString()
     {
         _ = Assert.Throws<NotSupportedException>(() =>
-            new Cell(new RandomString(new UShort(10))).ToString()
+            new Row(new Dictionary<IColumn, ICell>()).ToString()
         );
     }
 }
