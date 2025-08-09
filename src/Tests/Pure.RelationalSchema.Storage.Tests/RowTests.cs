@@ -1,8 +1,9 @@
-using Pure.Primitives.Abstractions.String;
-using Pure.Primitives.Materialized.Bool;
+using Pure.Collections.Generic;
 using Pure.Primitives.Number;
 using Pure.Primitives.Random.String;
-using Pure.Primitives.String.Operations;
+using Pure.RelationalSchema.Abstractions.Column;
+using Pure.RelationalSchema.ColumnType;
+using Pure.RelationalSchema.HashCodes;
 using Pure.RelationalSchema.Storage.Abstractions;
 
 namespace Pure.RelationalSchema.Storage.Tests;
@@ -12,13 +13,23 @@ public sealed record RowTests
     [Fact]
     public void InitializeCorrectly()
     {
-        IString cellValue = new RandomString(new UShort(10));
+        IEnumerable<(IColumn, ICell)> values =
+        [
+            (
+                new Column.Column(new RandomString(new UShort(10)), new IntColumnType()),
+                new Cell(new RandomString(new UShort(10)))
+            ),
+        ];
 
-        ICell cell = new Cell(cellValue);
+        IReadOnlyDictionary<IColumn, ICell> dictionary = new Dictionary<
+            (IColumn, ICell),
+            IColumn,
+            ICell
+        >(values, x => x.Item1, x => x.Item2, x => new ColumnHash(x));
 
-        Assert.True(
-            new MaterializedBool(new EqualCondition(cellValue, cell.Value)).Value
-        );
+        IRow row = new Row(dictionary);
+
+        Assert.Equal(dictionary, row.Cells);
     }
 
     [Fact]
