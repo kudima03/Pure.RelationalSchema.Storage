@@ -57,11 +57,7 @@ public sealed record StoredSchemaDatasetTests
         >(
             tables,
             x => x,
-            x => new StoredTableDataset(
-                x,
-                new EnumerableQuery<IRow>(rows),
-                new FakeAsyncEnumerable(rows.AsEnumerable())
-            ),
+            x => new FakeTableDataset(tables.First(), rows),
             x => new TableHash(x)
         );
 
@@ -76,11 +72,7 @@ public sealed record StoredSchemaDatasetTests
                 new Dictionary<ITable, ITable, IStoredTableDataSet>(
                     [],
                     x => x,
-                    x => new StoredTableDataset(
-                        x,
-                        new EnumerableQuery<IRow>([]),
-                        new FakeAsyncEnumerable([])
-                    ),
+                    x => new FakeTableDataset(x, []),
                     x => new TableHash(x)
                 )
             ).GetHashCode()
@@ -95,11 +87,7 @@ public sealed record StoredSchemaDatasetTests
                 new Dictionary<ITable, ITable, IStoredTableDataSet>(
                     [],
                     x => x,
-                    x => new StoredTableDataset(
-                        x,
-                        new EnumerableQuery<IRow>([]),
-                        new FakeAsyncEnumerable([])
-                    ),
+                    x => new FakeTableDataset(x, []),
                     x => new TableHash(x)
                 )
             ).ToString()
