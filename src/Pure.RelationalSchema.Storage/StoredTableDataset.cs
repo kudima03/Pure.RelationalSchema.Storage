@@ -16,7 +16,10 @@ public sealed record StoredTableDataset : IStoredTableDataSet
     )
     {
         TableSchema = tableSchema;
-        Expression = Expression.Constant(this, typeof(IQueryable<IRow>));
+        Expression = Expression.Constant(
+            Enumerable.Empty<IRow>().AsQueryable(),
+            typeof(IQueryable<IRow>)
+        );
         Provider = provider;
         _asyncEnumerable = asyncEnumerator;
     }
