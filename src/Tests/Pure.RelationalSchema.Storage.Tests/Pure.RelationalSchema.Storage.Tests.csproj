@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
-    <PackageReference Include="Pure.Collections.Generic" Version="0.1.0-preview.1.0.0" />
+    <PackageReference Include="Pure.Collections.Generic" Version="0.1.0-preview.1.1.0" />
     <PackageReference Include="Pure.Primitives" Version="3.3.0" />
     <PackageReference Include="Pure.Primitives.Materialized" Version="0.1.0" />
     <PackageReference Include="Pure.Primitives.Random" Version="0.5.0" />
