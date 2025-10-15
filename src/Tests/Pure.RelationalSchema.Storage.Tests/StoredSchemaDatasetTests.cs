@@ -1,3 +1,4 @@
+using System.Collections;
 using Pure.Collections.Generic;
 using Pure.HashCodes;
 using Pure.RelationalSchema.Abstractions.Schema;
@@ -170,7 +171,7 @@ public sealed record StoredSchemaDatasetTests
     public void EnumeratesAsUntyped()
     {
         ISchema schema = new RandomSchema();
-        IStoredSchemaDataSet schemaDataset = new StoredSchemaDataset(
+        IEnumerable schemaDataset = new StoredSchemaDataset(
             schema,
             new Dictionary<ITable, ITable, IStoredTableDataSet>(
                 schema.Tables,
