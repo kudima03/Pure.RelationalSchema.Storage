@@ -13,9 +13,9 @@
     <PackageProjectUrl>https://github.com/kudima03/Pure.RelationalSchema.Storage</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Pure.Primitives" Version="3.3.0" />
+    <PackageReference Include="Pure.Primitives" Version="3.5.0" />
     <PackageReference Include="Pure.Primitives.Materialized" Version="0.1.0" />
-    <PackageReference Include="Pure.Primitives.String.Operations" Version="0.3.0" />
+    <PackageReference Include="Pure.Primitives.String.Operations" Version="1.3.0" />
     <PackageReference
       Include="Pure.RelationalSchema.Storage.Abstractions"
       Version="0.1.0-preview.4.0.0"
