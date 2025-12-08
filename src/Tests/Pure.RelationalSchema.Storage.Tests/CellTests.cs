@@ -1,5 +1,4 @@
 using Pure.Primitives.Abstractions.String;
-using Pure.Primitives.Materialized.Bool;
 using Pure.Primitives.Number;
 using Pure.Primitives.Random.String;
 using Pure.Primitives.String.Operations;
@@ -17,7 +16,7 @@ public sealed record CellTests
         ICell cell = new Cell(cellValue);
 
         Assert.True(
-            new MaterializedBool(new EqualCondition(cellValue, cell.Value)).Value
+            new EqualCondition(cellValue, cell.Value).BoolValue
         );
     }
 

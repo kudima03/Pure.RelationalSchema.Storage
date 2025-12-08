@@ -64,8 +64,8 @@ public sealed record StoredSchemaDatasetTests
         );
 
         Assert.True(
-            new AggregatedHash(schema.Tables.Select(x => new TableHash(x))).SequenceEqual(
-                new AggregatedHash(schemaDataset.Keys.Select(x => new TableHash(x)))
+            new DeterminedHash(schema.Tables.Select(x => new TableHash(x))).SequenceEqual(
+                new DeterminedHash(schemaDataset.Keys.Select(x => new TableHash(x)))
             )
         );
     }
@@ -85,12 +85,12 @@ public sealed record StoredSchemaDatasetTests
         );
 
         Assert.True(
-            new AggregatedHash(
+            new DeterminedHash(
                 schema.Tables.Select(x => new StoredTableDataSetHash(
                     new FakeTableDataset(x)
                 ))
             ).SequenceEqual(
-                new AggregatedHash(
+                new DeterminedHash(
                     schemaDataset.Values.Select(x => new StoredTableDataSetHash(x))
                 )
             )
