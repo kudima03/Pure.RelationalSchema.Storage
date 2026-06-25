@@ -1,6 +1,7 @@
 using System.Collections;
 using Pure.Collections.Generic;
 using Pure.HashCodes;
+using Pure.Primitives.Number;
 using Pure.RelationalSchema.Abstractions.Schema;
 using Pure.RelationalSchema.Abstractions.Table;
 using Pure.RelationalSchema.HashCodes;
@@ -100,7 +101,9 @@ public sealed record StoredSchemaDatasetTests
     [Fact]
     public void IndexingOperatorWorkCorrectly()
     {
-        ISchema schema = new RandomSchema();
+        ISchema schema = new RandomSchema(
+            new RandomTablesCollection(new UShort(5))
+        );
         IStoredSchemaDataSet schemaDataset = new StoredSchemaDataset(
             schema,
             new Dictionary<ITable, ITable, IStoredTableDataSet>(
@@ -123,7 +126,9 @@ public sealed record StoredSchemaDatasetTests
     [Fact]
     public void ContainsWorkCorrectly()
     {
-        ISchema schema = new RandomSchema();
+        ISchema schema = new RandomSchema(
+            new RandomTablesCollection(new UShort(5))
+        );
         IStoredSchemaDataSet schemaDataset = new StoredSchemaDataset(
             schema,
             new Dictionary<ITable, ITable, IStoredTableDataSet>(
@@ -140,7 +145,9 @@ public sealed record StoredSchemaDatasetTests
     [Fact]
     public void TryGetValueWorkCorrectly()
     {
-        ISchema schema = new RandomSchema();
+        ISchema schema = new RandomSchema(
+            new RandomTablesCollection(new UShort(5))
+        );
         IStoredSchemaDataSet schemaDataset = new StoredSchemaDataset(
             schema,
             new Dictionary<ITable, ITable, IStoredTableDataSet>(
