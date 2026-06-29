@@ -12,7 +12,7 @@
     <PackageReference Include="Pure.Collections.Generic" Version="0.1.0-preview.3.0.0" />
     <PackageReference Include="Pure.Primitives.Random" Version="0.8.3" />
     <PackageReference Include="Pure.Primitives.String.Operations" Version="1.5.1" />
-    <PackageReference Include="Pure.RelationalSchema" Version="2.0.2" />
+    <PackageReference Include="Pure.RelationalSchema" Version="2.0.3" />
     <PackageReference Include="Pure.RelationalSchema.HashCodes" Version="3.3.0" />
     <PackageReference Include="Pure.RelationalSchema.Random" Version="1.1.0" />
     <PackageReference Include="Pure.RelationalSchema.Storage.HashCodes" Version="0.1.0-preview.2.2.0" />
