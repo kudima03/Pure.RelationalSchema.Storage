@@ -15,6 +15,8 @@ dotnet test --no-build --verbosity normal      # run xUnit tests
 dotnet pack --configuration Release -p:Version=<version> --output .
 ```
 
+CI additionally passes `-p:AssemblyVersion` (pinned to the major) and `-p:FileVersion`; see `.github/workflows/publish-nuget.yml`.
+
 ## Architecture
 
 This is a **concrete implementation NuGet library** — three `sealed record` types that implement the interfaces defined in `Pure.RelationalSchema.Storage.Abstractions`:
