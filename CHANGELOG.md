@@ -6,6 +6,19 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.0-preview.8.1.0] — 2026-11-11
+
+### Added
+
+- Now also targets `net11.0`, alongside `net7.0`, `net8.0`, `net9.0`, and
+  `net10.0`.
+- The NuGet package now ships the README.
+
+### Changed
+
+- Updated `Pure.Primitives.Abstractions` to `4.4.0` and
+  `Pure.RelationalSchema.Storage.Abstractions` to `0.1.0-preview.4.2.0`.
+
 ## [0.1.0-preview.8.0.0] — 2026-05-07
 
 ### Changed
