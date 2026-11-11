@@ -27,7 +27,7 @@ This is a **concrete implementation NuGet library** — three `sealed record` ty
 
 `ToString()` and `GetHashCode()` throw `NotSupportedException` on all three types — hash code computation is the responsibility of companion packages.
 
-**Multi-targeting:** net7.0, net8.0, net9.0, net10.0. `IsAotCompatible = true` — no reflection-based APIs may be introduced.
+**Multi-targeting:** net7.0, net8.0, net9.0, net10.0, net11.0. `IsAotCompatible = true` — no reflection-based APIs may be introduced.
 
 **No `EnablePackageValidation`** is configured on this library.
 
